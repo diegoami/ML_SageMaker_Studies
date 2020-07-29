@@ -14,9 +14,11 @@ class SimpleNet(nn.Module):
          '''
         super(SimpleNet, self).__init__()
         
-        # define all layers, here
+        self.fc1 = nn.Linear(input_dim, hidden_dim)
+        self.fc2 = nn.Linear(hidden_dim, output_dim)
+        self.drop = nn.Dropout(0.3)
+        self.sig = nn.Sigmoid()
         
-    
     ## TODO: Define the feedforward behavior of the network
     def forward(self, x):
         '''Feedforward behavior of the net.
@@ -25,4 +27,9 @@ class SimpleNet(nn.Module):
          '''
         # your code, here
         
-        return x
+        out = F.relu(self.fc1(x.float()))
+        out = self.drop(out)
+        out = self.fc2(out)
+        out = self.sig(out)
+        return out                 
+        
