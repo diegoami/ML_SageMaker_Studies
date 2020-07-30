@@ -27,7 +27,7 @@ class SimpleNet(nn.Module):
          '''
         # your code, here
         
-        out = F.relu(self.fc1(x.float()))
+        out = F.relu(self.fc1(x))
         out = self.drop(out)
         out = self.fc2(out)
         out = self.sig(out)
