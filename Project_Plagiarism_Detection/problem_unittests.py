@@ -69,9 +69,9 @@ def test_containment(complete_df, containment_fn):
         results_1gram.append(val_1)
         results_3gram.append(val_3)
         
-    print(val_1)
+    print(ngram_1)
     print(results_1gram)
-    print(val_3)
+    print(ngram_3)
     print(results_3gram)
     
     
@@ -108,7 +108,8 @@ def test_lcs(df, lcs_word):
     
     # known vals for first few files
     lcs_vals = [0.1917808219178082, 0.8207547169811321, 0.8464912280701754, 0.3160621761658031, 0.24257425742574257]
-    
+    print("Expected values: "+lcs_vals)
+
     # results for comparison
     results = []
     
@@ -123,7 +124,8 @@ def test_lcs(df, lcs_word):
         # calc lcs
         val = lcs_word(answer_text, source_text)
         results.append(val)
-        
+    print("Calculated values: " + results)
+
     # check correct results
     assert all(np.isclose(results, lcs_vals, rtol=1e-05)), 'LCS calculations are incorrect.'
     
