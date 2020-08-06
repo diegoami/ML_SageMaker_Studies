@@ -108,7 +108,7 @@ def test_lcs(df, lcs_word):
     
     # known vals for first few files
     lcs_vals = [0.1917808219178082, 0.8207547169811321, 0.8464912280701754, 0.3160621761658031, 0.24257425742574257]
-    print("Expected values: "+lcs_vals)
+
 
     # results for comparison
     results = []
@@ -124,7 +124,7 @@ def test_lcs(df, lcs_word):
         # calc lcs
         val = lcs_word(answer_text, source_text)
         results.append(val)
-    print("Calculated values: " + results)
+        print(f'Calculated: {val}, Expected: {lcs_vals[i]}')
 
     # check correct results
     assert all(np.isclose(results, lcs_vals, rtol=1e-05)), 'LCS calculations are incorrect.'
